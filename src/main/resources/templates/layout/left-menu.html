@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+    <!-- ########## START: LEFT PANEL ########## -->
+<!--    <div class="br-logo text-center"><a href=""><img th:src="@{/img/logo-sergai.png}" width="70%"></a></div>-->
+    <div class="br-logo"><a href=""><span>[</span>SE2 <i>NET2</i><span>]</span></a></div>
+    <div class="br-sideleft sideleft-scrollbar">
+        <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
+        <ul class="br-sideleft-menu">
+            <li class="br-menu-item" sec:authorize="hasRole('HOME_MENU')">
+                <a th:href="@{/home}" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-home-outline tx-20"></i>
+                    <span class="menu-item-label">Home</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <li class="br-menu-item" sec:authorize="hasRole('RATING_MENU')">
+                <a th:href="@{/rating}" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-star-outline tx-20"></i>
+                    <span class="menu-item-label">Rating</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <li class="br-menu-item" sec:authorize="hasRole('DASHBOARD_MENU')">
+                <a href="#" class="br-menu-link with-sub show-sub">
+                    <i class="menu-item-icon icon ion-ios-paper-outline tx-20"></i>
+                    <span class="menu-item-label">Laporan</span>
+                </a><!-- br-menu-link -->
+                <ul class="br-menu-sub" style="display: block;">
+                    <li class="sub-item"><a th:href="@{/report/paket}" class="sub-link">Paket</a></li>
+                    <li class="sub-item"><a th:href="@{/report/rekanan}" class="sub-link">Penyedia</a></li>
+                    <li class="sub-item"><a th:href="@{/report/ppk}" class="sub-link">PPK</a></li>
+                </ul>
+            </li>
+            <li class="br-menu-item" sec:authorize="hasRole('RATING_MENU')">
+                <a th:href="@{/dashboard}" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-analytics-outline tx-20"></i>
+                    <span class="menu-item-label">Dashboard</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info" sec:authorize="hasAnyRole('ACCOUNT_MENU', 'ACCOUNT_ROLE_MENU')">Akun</label>
+            <li class="br-menu-item">
+                <a th:href="@{/user}" sec:authorize="hasRole('ACCOUNT_MENU')" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-person-outline tx-20"></i>
+                    <span class="menu-item-label">Pengguna</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <li class="br-menu-item">
+                <a th:href="@{/role}" sec:authorize="hasRole('ACCOUNT_ROLE_MENU')" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-grid-view-outline tx-20"></i>
+                    <span class="menu-item-label">Role</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info" sec:authorize="hasAnyRole('SLIDER_MENU', 'NEWS_MENU')">Aplikasi</label>
+            <ul class="br-sideleft-menu">
+                <li class="br-menu-item">
+                    <a th:href="@{/slider}" class="br-menu-link" sec:authorize="hasRole('SLIDER_MENU')">
+                        <i class="menu-item-icon icon ion-ios-person-outline tx-24"></i>
+                        <span class="menu-item-label">Spanduk</span>
+                    </a><!-- br-menu-link -->
+                    <a th:href="@{/news}" class="br-menu-link" sec:authorize="hasRole('NEWS_MENU')">
+                        <i class="menu-item-icon icon ion-android-apps tx-24"></i>
+                        <span class="menu-item-label">News</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            </ul>
+            <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info" sec:authorize="hasRole('INDICATOR_MENU')">Indikator</label>
+            <ul class="br-sideleft-menu" sec:authorize="hasRole('INDICATOR_MENU')">
+                <li class="br-menu-item">
+                    <a th:href="@{/assessmentgroup}" class="br-menu-link">
+                        <i class="menu-item-icon icon ion-filing tx-24"></i>
+                        <span class="menu-item-label">Form Penilaian</span>
+                    </a><!-- br-menu-link -->
+                    <a th:href="@{/indicator}" class="br-menu-link">
+                        <i class="menu-item-icon icon ion-clipboard tx-24"></i>
+                        <span class="menu-item-label">Indikator</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            </ul>
+        </ul>
+    </div><!-- br-sideleft -->
+    <!-- ########## END: LEFT PANEL ########## -->
+</html>

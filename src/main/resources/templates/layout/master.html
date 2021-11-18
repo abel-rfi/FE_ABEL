@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Twitter -->
+        <meta name="twitter:site" content="@themepixels">
+        <meta name="twitter:creator" content="@themepixels">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Vendor Rating">
+        <meta name="twitter:description" content="Vendor Rating.">
+        <meta name="twitter:image" content="http://labs.lua.co.id/vendorrating/img/logo-vendorrating.png">
+
+        <!-- Facebook -->
+        <meta property="og:url" content="http://labs.lua.co.id/vendorrating">
+        <meta property="og:title" content="Vendor Rating Kabupaten Cirebon">
+        <meta property="og:description" content="Vendor Rating Kabupaten Cirebon">
+
+        <meta property="og:image" content="http://labs.lua.co.id/vendorrating/img/logo-vendorrating.png">
+        <meta property="og:image:secure_url" content="http://labs.lua.co.id/vendorrating/img/logo-pemantauanjalanvendorrating.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="600">
+
+        <!-- Meta -->
+        <meta name="description" content="SE2Net2">
+        <meta name="author" content="Lua Indonesia">
+
+        <link rel="icon"
+              type="image/png"
+              th:href="@{/img/iuli.ico}" />
+
+        <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">SE2Net2</title>
+        <!-- vendor css -->
+<!--        <link th:href="@{/lib/@fortawesome/fontawesome-free/css/all.min.css}" rel="stylesheet">-->
+        <link th:href="@{/lib/font-awesome/css/fontawesome-all.css}" rel="stylesheet">
+        <link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+
+        <!-- Bracket CSS -->
+        <link rel="stylesheet" th:href="@{/css/bracket.css}">
+
+        <th:block layout:fragment="page_css"/>
+    </head>
+
+    <body>
+        <th:block th:replace="layout/left-menu"/>
+        <th:block th:replace="layout/top-menu"/>
+        <th:block th:replace="layout/right-menu"/>
+        <!-- ########## START: MAIN PANEL ########## -->
+        <div class="br-mainpanel mg-t-60">
+            <div class="alert alert-success" role="alert" th:if="${!result_code.equals('')}"
+                 th:classappend="${result_code.equals('1') ? 'alert-success' : 'alert-danger'}">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong class="d-block d-sm-inline-block-force" th:text="${result_code.equals('1')?'Congratz!':'Oops!'}"></strong>
+                <span th:text="${result_message}"> </span>
+            </div><!-- alert -->
+            <th:block layout:fragment="content"/>
+            <th:block th:replace="layout/footer"/>
+        </div><!-- br-mainpanel -->
+        <!-- ########## END: MAIN PANEL ########## -->
+
+        <script th:src="@{/lib/jquery/jquery.min.js}"></script>
+        <script th:src="@{/lib/jquery-ui/ui/widgets/datepicker.js}"></script>
+        <script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/lib/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+        <script th:src="@{/lib/moment/min/moment.min.js}"></script>
+        <script th:src="@{/lib/peity/jquery.peity.min.js}"></script>
+<!--        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>-->
+
+        <script th:src="@{/js/bracket.js}"></script>
+        <script th:src="@{/js/main.js}"></script>
+
+        <th:block layout:fragment="page_js"/>
+    </body>
+</html>

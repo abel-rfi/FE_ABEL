@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <!-- ########## START: HEAD PANEL ########## -->
+    <div class="br-header">
+        <div class="br-header-left">
+            <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+            <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+<!--            <div class="navicon-left">-->
+<!--                <a id="qrCam" width="100%"><i class="fa fa-qrcode tx-24"></i></i></a>-->
+<!--            </div>-->
+        </div><!-- br-header-left -->
+        <div class="br-header-right">
+            <th:block sec:authorize="isAuthenticated()">
+                <nav class="nav">
+                    <div class="dropdown">
+                        <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+                            <span class="logged-namle hidden-md-down" th:text="${userLogin.getUsername()}"></span>
+                            <img th:if="${userLogin.getImage()!=null}"th:src="@{'/uploads/'+${userLogin?.getImage()}}" class="wd-32 rounded-circle" alt="">
+                            <img th:unless="${userLogin.getImage()!=null}" src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
+                            <span class="square-10 bg-success"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-header wd-250">
+                            <div class="tx-center">
+                                <a href="" th:if="${userLogin.getImage()!=null}"><img th:src="@{'/uploads/'+${userLogin?.getImage()}}" class="wd-80 rounded-circle" alt=""></a>
+                                <a href="" th:unless="${userLogin.getImage()!=null}"><img src="https://via.placeholder.com/500" class="wd-80 rounded-circle" alt=""></a>
+                                <h6 class="logged-fullname" th:text="${userLogin.getName()}"></h6>
+                                <p th:text="${userLogin.getEmail()}"></p>
+                            </div>
+                            <hr>
+<!--                            <div class="tx-center">-->
+<!--                                <span class="profile-earning-label">Earnings After Taxes</span>-->
+<!--                                <h3 class="profile-earning-amount">$13,230 <i class="icon ion-ios-arrow-thin-up tx-success"></i></h3>-->
+<!--                                <span class="profile-earning-text">Based on list price.</span>-->
+<!--                            </div>-->
+<!--                            <hr>-->
+                            <ul class="list-unstyled user-profile-nav">
+                                <li><a th:href="@{/user/infoprofile}"><i class="icon ion-ios-person"></i> Info Profil</a></li>
+                                <li><a th:href="@{/user/ubahpassword}"><i class="icon ion-ios-gear"></i> Ubah Sandi</a></li>
+<!--                                <li><a href=""><i class="icon ion-ios-download"></i> Downloads</a></li>-->
+<!--                                <li><a href=""><i class="icon ion-ios-star"></i> Favorites</a></li>-->
+<!--                                <li><a href=""><i class="icon ion-ios-folder"></i> Collections</a></li>-->
+                                <form id="logoutForm" th:action="@{/logout}" method="post">
+                                </form>
+                                <li><a href="#" onclick="document.getElementById('logoutForm').submit();"><i class="icon ion-power"></i> Keluar</a></li>
+                            </ul>
+                        </div><!-- dropdown-menu -->
+                    </div><!-- dropdown -->
+                </nav>
+            </th:block>
+            <th:block sec:authorize="!isAuthenticated()">
+                <div class="navicon-right">
+                    <a id="btnSignIn" th:href="@{/login}" class="pos-relative">
+                        <i class="icon ion-log-in text-danger"></i>
+                    </a>
+                </div><!-- navicon-right -->
+            </th:block>
+        </div><!-- br-header-right -->
+    </div><!-- br-header -->
+    <!-- ########## END: HEAD PANEL ########## -->
+</html>
