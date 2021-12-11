@@ -10,7 +10,14 @@
         <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
         <ul class="br-sideleft-menu">
             <li class="br-menu-item" >
-                <a th:href="@{/dashboard}" class="br-menu-link">
+                <a th:href="@{/dashboard-seller}" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-home-outline tx-20"></i>
+                    <span class="menu-item-label">Dashboard</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+
+            <li class="br-menu-item" >
+                <a th:href="@{/dashboard-admin}" class="br-menu-link">
                     <i class="menu-item-icon icon ion-ios-home-outline tx-20"></i>
                     <span class="menu-item-label">Dashboard</span>
                 </a><!-- br-menu-link -->
@@ -29,18 +36,38 @@
                     <span class="menu-item-label">Open PO</span>
                 </a><!-- br-menu-link -->
                 <ul class="br-menu-sub" style="display: block;">
-                    <li class="sub-item"><a th:href="@{/openpo/daftarpo}" class="sub-link">Daftar PO</a></li>
-                    <li class="sub-item"><a th:href="@{/openpo/progresspo}" class="sub-link">Progress PO</a></li>
+                    <li class="sub-item"><a th:href="@{/open-po/daftar-po}" class="sub-link">Daftar PO</a></li>
+                    <li class="sub-item"><a th:href="@{/open-po/progress-po}" class="sub-link">Progress PO</a></li>
                 </ul>
             </li>
 
             <li class="br-menu-item" >
-                <a th:href="@{/produkdisplay}" class="br-menu-link">
+                <a th:href="@{/product-display}" class="br-menu-link">
                     <i class="menu-item-icon icon ion-ios-analytics-outline tx-20"></i>
                     <span class="menu-item-label">Product Display</span>
                 </a><!-- br-menu-link -->
             </li><!-- br-menu-item -->
+            
+            <li class="br-menu-item" >
+                <a th:href="@{/daftar-seller}" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-star-outline tx-20"></i>
+                    <span class="menu-item-label">Daftar Seller</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
 
+            <li class="br-menu-item" >
+                <a th:href="@{/daftar-grup}" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-analytics-outline tx-20"></i>
+                    <span class="menu-item-label">Daftar Grup</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+
+            <li class="br-menu-item" >
+                <a th:href="@{/daftar-produk}" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-analytics-outline tx-20"></i>
+                    <span class="menu-item-label">Daftar Produk</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
           
         </ul>
     </div><!-- br-sideleft -->
