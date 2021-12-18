@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html
+        lang="en"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+        layout:decorate="~{layout/master}"
+>
+
+<!-- TODO:
+components of open-po page (in order)
+    - a table of daftar PO previously
+    - a button to make a new PO
+    - an expand button to see content from daftar PO
+    - the content is in a text box with two buttons: edit and copy
+    - a section to make a new PO 
+        - Add Nama, Tanggal, Grup, Produk, Catatan Tambahan, submit button
+        - Choose group from dropdown
+        - Choose products from a pop up or a checklist
+-->
+
+<head>
+    <title>Open PO</title>
+    <link th:href="@{/lib/highlightjs/styles/github.css}" rel="stylesheet">
+    <link th:href="@{/lib/select2/css/select2.min.css}" rel="stylesheet">
+    <link th:href="@{/lib/select2/css/select2-bootstrap4.min.css}" rel="stylesheet">
+    <link th:href="@{/lib/datatables.net-dt/css/jquery.dataTables.min.css}" rel="stylesheet">
+    <link th:href="@{/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css}" rel="stylesheet">
+</head>
+
+<th:block layout:fragment="page_css">
+    <link th:href="@{/lib/highlightjs/styles/github.css}" rel="stylesheet">
+    <link th:href="@{/lib/select2/css/select2.min.css}" rel="stylesheet">
+    <link th:href="@{/lib/datatables.net-dt/css/jquery.dataTables.min.css}" rel="stylesheet">
+    <link th:href="@{/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css}" rel="stylesheet">
+</th:block>
+
+<th:block layout:fragment="content">
+    <!--Nav bar? How to call left menu??-->
+    <div class="br-sideleft-menu" >
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+            <!-- <a class="breadcrumb-item" th:href="@{/}">Dashboard</a>
+            <a class="breadcrumb-item" th:href="@{/}">Grup</a> -->
+            <span class="breadcrumb-item active">Open PO</span>
+            <!-- <a class="breadcrumb-item" th:href="@{/}">Progres PO</a>
+            <a class="breadcrumb-item" th:href="@{/}">Produk Display</a> -->
+        </nav>
+    </div>
+
+    <div class="br-pagetitle hidden-md-up">
+        <h4>Daftar PO</h4>
+    </div>
+
+    
+    <div class="br-pagebody">
+        <!--Try to start table daftar PO-->
+        <div class="br-section-wrapper pd-20">
+            <div class="head">
+                <h1>Daftar Template PO</h1>
+                <button>Tambah PO</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="daftarPO" class="table display responsive" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="wd-5">#</th>
+                            <th>Nama PO</th>
+                            <th>Grup</th>
+                            <th>Tanggal PO Buka</th>
+                            <th>Tanggal PO Tutup</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <th>PO Duren</th>
+                            <th>Grup Duren</th>
+                            <th>18 Desember 2021</th>
+                            <th>19 Desember 2021</th>
+                            <!--How to expand??-->
+                            <th>Tampilkan Pesan</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- table-wrapper -->
+        </div><!-- br-section-wrapper -->
+
+
+        <!--Try to start-->
+        <div class="br-section-wrapper pd-20">
+            <div class="head">
+                <h1>Tambah PO</h1>
+            </div>
+
+
+        </div><!--br-section-wrapper-->
+    
+    
+    </div><!-- br-pagebody; so include all-->
+
+</th:block>
+
+<th:block layout:fragment="page_js">
+    <script th:src="@{/lib/highlightjs/highlight.pack.min.js}"></script>
+    <script th:src="@{/lib/select2/js/select2.min.js}"></script>
+    <script th:src="@{/lib/jquery-validation-1.19.1/dist/jquery.validate.min.js}" type="text/javascript"></script>
+    <script th:src="@{/lib/jquery-validation-1.19.1/dist/additional-methods.js}" type="text/javascript"></script>
+</th:block>
+</html>

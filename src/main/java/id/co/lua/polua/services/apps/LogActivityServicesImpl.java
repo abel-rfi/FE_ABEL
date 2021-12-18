@@ -54,6 +54,7 @@ public class LogActivityServicesImpl implements LogAcivityService {
         }
     }
 
+    
     @Override
     public void login(User user, String ip) {
         LogActivity logActivity = new LogActivity()
@@ -62,7 +63,7 @@ public class LogActivityServicesImpl implements LogAcivityService {
                 .setIp(ip);
         logActivityRepository.save(logActivity);
     }
-
+    
     @Override
     public void logout(User user) {
         LogActivity lastLogin = getLastLogin(user);
@@ -73,4 +74,6 @@ public class LogActivityServicesImpl implements LogAcivityService {
             throw new IdNotExistsException();
         }
     }
+
+
 }
