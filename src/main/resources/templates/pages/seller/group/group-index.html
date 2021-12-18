@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html
+        lang="en"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+        layout:decorate="~{layout/master}"
+>
+<title>Beranda</title>
+<th:block layout:fragment="page_css">
+    <link th:href="@{/lib/highlightjs/styles/github.css}" rel="stylesheet">
+    <link th:href="@{/lib/select2/css/select2.min.css}" rel="stylesheet">
+    <link th:href="@{/lib/datatables.net-dt/css/jquery.dataTables.min.css}" rel="stylesheet">
+    <link th:href="@{/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css}" rel="stylesheet">
+</th:block>
+
+<th:block layout:fragment="content">
+    <div class="br-pageheader">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+            <a class="breadcrumb-item" th:href="@{/}">Home</a>
+            <span class="breadcrumb-item active">Group List</span>
+        </nav>
+    </div>
+    <div class="d-flex align-items-center justify-content-start pd-x-20 pd-sm-x-30 pd-t-25 mg-b-20 mg-sm-b-30">
+        <div class="btn-group hidden-xs-down">
+            <a th:href="@{/hewan/add}" class="btn btn-outline-info"><i class="fa fa-plus"></i> Hewan</a>
+<!--            <a th:href="@{/hewan/add}" class="btn btn-outline-info"><i class="fa fa-plus"></i> Hewan</a>-->
+        </div>
+        <div class="dropdown hidden-md-up">
+            <a href="#" class="btn btn-outline-secondary" data-toggle="dropdown"><i class="icon ion-more"></i></a>
+            <div class="dropdown-menu pd-10">
+                <nav class="nav nav-style-1 flex-column">
+                    <a th:href="@{/hewan/add}" class="nav-link"><i class="icon ion-ios-plus"></i> Hewan</a></a>
+<!--                    <a th:href="@{/hewan/add}" class="nav-link"><i class="icon ion-ios-plus"></i> Hewan</a></a>-->
+                </nav>
+            </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+    </div>
+
+    <div class="br-pagebody">
+        <div class="br-section-wrapper pd-20">
+            <div class="table-wrapper">
+                <table id="hewanTableId" class="table display responsive" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Jenis</th>
+                            <th>Mamalia</th>
+                            <th>Jumlah</th>
+                            <th>Sakit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="h:${hewanList}">
+                            <td>
+                                <a th:href="@{'hewan/show/'+${h.getId()}}" th:text="${h.getJenis()}"></a>
+                            </td>
+                            <td th:text="${h.isMamalia()?'Ya':'Tidak'}"></td>
+                            <td th:text="${h.getJumlah()}"></td>
+                            <td th:text="${h.getSick()}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- table-wrapper -->
+        </div><!-- br-section-wrapper -->
+    </div><!-- br-pagebody -->
+</th:block>
+
+<th:block layout:fragment="page_js">
+    <script th:src="@{/lib/highlightjs/highlight.pack.min.js}"></script>
+    <script th:src="@{/lib/datatables.net/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/lib/datatables.net-dt/js/dataTables.dataTables.min.js}"></script>
+    <script th:src="@{/lib/datatables.net-responsive/js/dataTables.responsive.min.js}"></script>
+    <script th:src="@{/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js}"></script>
+    <script th:src="@{/lib/select2/js/select2.min.js}"></script>
+</th:block>
+</html>
