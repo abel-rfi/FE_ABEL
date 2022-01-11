@@ -14,8 +14,8 @@ public class DaftarPOController extends BasicController {
     PasswordEncoder passwordEncoder;
 
 
-    // viewing daftar-po page maybe
-    @RequestMapping("/daftar-po")
+    // viewing daftar-po page under seller directory 
+    @RequestMapping("/seller/daftar-po")
     public ModelAndView main(ModelAndView mView,
                              @ModelAttribute(name = "result_code") String result_code,
                              @ModelAttribute(name = "result_message") String result_message,
